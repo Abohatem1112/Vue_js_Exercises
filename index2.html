@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+
+</head>
+
+<body>
+    <div id="test">
+        <app-count></app-count>
+        <app-article v-for="post in posts":title="post.title":author="post.author"></app-article>
+        <app-article-item></app-article-item>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.14/vue.min.js" integrity="sha512-BAMfk70VjqBkBIyo9UTRLl3TBJ3M0c6uyy2VMUrq370bWs7kchLNN9j1WiJQus9JAJVqcriIUX859JOm12LWtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    var AppArticleTtem={
+        data(){
+            return{
+                name:"cr7",
+
+            }
+        },
+       
+        template:'<p>test</p>'
+    }
+    
+    Vue.component('app-article',{
+        data(){
+            return{
+
+            }
+        },
+        props:['author','title'],
+        template:'<p>aticle title is {{ title }}and written by{{ author }} </p>'
+    }),
+    Vue.component('app-count', {
+        data() {
+            return {
+                name: 'mohamed',
+                count: 0,
+            }
+
+        },
+        template: '<P @click="count++">hello{{ name }}you clicked this paragraph {{ count }}times </P>'
+    })
+    var vm=new Vue({
+        el:"#test",
+        data:{
+            name:'ahmed',
+            posts:[{id: 1,author: 'mohamed', title: 'one' },{id:2,author:'ahmed',title:'two' }],
+
+
+        },
+        comments:{
+        'app-article-item':AppArticleTtem,
+    }
+    })
+   
+</script>
+
+</html>

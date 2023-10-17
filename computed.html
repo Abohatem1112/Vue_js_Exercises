@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+
+</head>
+
+<body>
+    <div id="test">
+        <p>{{ reversemeesage }}</p>
+        <p>{{ reversemeesage }}</p>
+        <input type="text" v-model="username"></input>
+        <p>{{ validateUserName }}</p>
+
+
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.14/vue.min.js" integrity="sha512-BAMfk70VjqBkBIyo9UTRLl3TBJ3M0c6uyy2VMUrq370bWs7kchLNN9j1WiJQus9JAJVqcriIUX859JOm12LWtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    new Vue({
+        el: '#test',
+        data() {
+            return {
+                message: " mohamed_hatem",
+                username: "",
+
+
+
+            }
+        },
+        computed: {
+            reversemeesage() {
+                console.log('Run');
+                return this.message.split('').reverse().join();
+
+            },
+            validateUserName() {
+                console.log('Run');
+                if (!this.username) {
+                    return "the username empty";
+                } else if (this.username.length < 8) {
+                    return "this name is too short";
+                } else if (!isNaN(this.username)) {
+                    return "username cant br numbers only";
+                } else {
+                    return "hello" + this.username;
+                }
+            }
+
+        }
+
+
+    })
+</script>
+
+</html>

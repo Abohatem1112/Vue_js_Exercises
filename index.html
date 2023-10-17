@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+
+</head>
+
+<body>
+    <div id="test">
+        <p>{{ name }}</p>
+        <P v-if="age>20">uou are too old</P>
+        <p v-else-if="age=24">{{ age }}</p>
+        <P v-for="skill in skills">{{ skill }}</P>
+        <P v-for="(index,skill) in skills">{{ index }}={{ skill }}</P>
+        <p>your first skills is:{{skills[0] }}</p>
+        <p>you are {{isSubscribed?'subscribed':'not subscribed' }}</p>
+        <p>your first name is:{{ completedtests[0].testname }}</p>
+        <p>your first name is:{{ completedtests[1].testresult }}</p>
+        <!--  <p>{{ yourageindays() }} methods: {
+            yourageindays: function() {
+                return "your age in days:" + this.age * 365;
+
+            }</p>-->
+        <p v-text="name"></p>
+        <p v-html="title"></p>
+        <p v-once>wlecome{{ name }}</p>
+        <p v-show="name">name:{{name }}</p>
+        <a v-bind:href="imageurl"><img v-bind:src="imageSrc" v-bind:alt=" imageAltText"></a>
+        <p>counter is{{ counter }}</p>
+        <button @click.left="counter+=2">increase counter</button>
+        <form class="" method="post">
+            <input type="text" :value="source" placeholder="using v-bind"></input>
+            <input type="text" v-model="source" placeholder="using v-bind"></input>
+            <p>your nameis{{ source }}</p>
+        </form>
+
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.14/vue.min.js" integrity="sha512-BAMfk70VjqBkBIyo9UTRLl3TBJ3M0c6uyy2VMUrq370bWs7kchLNN9j1WiJQus9JAJVqcriIUX859JOm12LWtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    new Vue({
+        el: '#test',
+        data() {
+            return {
+                name: 'mohamed',
+                source: 'hatem',
+                title: '< div class = "rank" > noob < /div>',
+                age: 24,
+                skills: ['html', 'css', 'js'],
+                isSubscribed: true,
+                imageSrc: 'photo-1575936123452-b67c3203c357.jpg',
+                imageAltText: 'the alternate Text',
+                imageurl: 'https://www.google.com/maps/@30.721284,31.7993161,15z?entry=ttu',
+                counter: 0,
+                completedtests: [{
+                        testname: 'first test ',
+                        testresult: '80%'
+                    },
+
+                    {
+                        testname: 'second test ',
+                        testresult: '70%'
+                    }
+
+                ],
+
+
+            }
+
+
+        }
+    })
+</script>
+
+</html>

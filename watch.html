@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+
+</head>
+
+<body>
+    <div id="test">
+        
+        <label>Egyptian pound</label>
+        <input type="text" v-model="eg"></input>
+        <label>saudi riyal</label>
+        <input type="text" v-model="sar"></input>
+        <br>
+        <label>hour</label>
+        <input type="text" v-model="hour"></input>
+        <label> minute</label>
+        <input type="text" v-model="minute"></input>
+        <label>second</label>
+        <input type="text" v-model="second"></input>
+
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.14/vue.min.js" integrity="sha512-BAMfk70VjqBkBIyo9UTRLl3TBJ3M0c6uyy2VMUrq370bWs7kchLNN9j1WiJQus9JAJVqcriIUX859JOm12LWtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    new Vue({
+        el: '#test',
+        data() {
+            return {
+              
+                eg: 0 ,
+                sar: 0 ,
+                hour:0,
+                minute:0,
+                second:0,
+
+
+
+
+            }
+        },
+     
+
+      
+        watch: {
+            eg:function(v) {
+                this.sar = v / 10;
+                console.log('eg run');
+
+            },
+            sar:function(v) {
+                this.eg = v * 10;
+                console.log('sar run');
+
+
+            },
+            hour:function(v) {
+                this.minute = v * 60;
+                console.log('hour run');
+
+            },
+            minute:function(v) {
+                this.hour = v /60;
+                this.second=v * 60;
+                console.log('minute run');
+
+            },
+            second:function(v) {
+                this.minute = v /60;
+                console.log('second run');
+
+            },
+        },
+
+    })
+</script>
+
+</html>
